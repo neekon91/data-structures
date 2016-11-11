@@ -15,7 +15,7 @@ var Queue = function() {
   someInstance.dequeue = function() {
     if(last - first > 0){
       var remove = storage[first];
-      first++;
+      delete storage[first++];
       return remove;
     }
   };
