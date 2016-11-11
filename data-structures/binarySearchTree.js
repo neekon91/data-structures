@@ -15,15 +15,18 @@ var bianryMethod = {
     }
   },
   contains: function(target){
-
+    if(this.value === target){
+      return true;
+    } else if(this.value > target){
+      return !!(this.left && this.left.contains(target))
+    } else if(this.value < target){
+      return !!(this.right && this.right.contains(target))
+    }
   },
   depthFirstLog: function(callback){
 
   }
 };
-// treeMethods.prototype.contains = function(){}
-// treeMethods.prototype.depthFirstLog = function(){}
-// treeMethods.prototype.breadthFirstLog = function(){}
 // treeMethods.prototype.balanceFactor = function(){}
 // treeMethods.prototype.rotateRight = function(){}
 // treeMethods.prototype.rotateLeft = function(){}
