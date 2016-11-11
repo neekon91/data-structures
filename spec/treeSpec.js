@@ -16,6 +16,10 @@ describe('tree', function() {
     expect(tree.hasOwnProperty("parent")).to.equal(true);
   });
 
+  it('should have a method named "traverse"', function(){
+    expect(tree.traverse).to.be.a('function');
+  });
+  
   it('should add children to the tree', function() {
     tree.addChild(5);
     expect(tree.children[0].value).to.equal(5);
