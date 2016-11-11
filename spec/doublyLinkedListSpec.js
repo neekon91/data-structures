@@ -22,9 +22,9 @@ describe('doublyLinkedList', function() {
 
   it('should update previous property of tail when nodes are added', function(){
     doublyLinkedList.addToTail(4);
-    // expect(doublyLinkedList.tail.value).to.equal(4);
-    doublyLinkedList.addToTail(5);
-    expect(doublyLinkedList.tail.previous).to.equal(4);
+    expect(doublyLinkedList.tail.value).to.equal(4);
+    // doublyLinkedList.addToTail(5);
+    // expect(doublyLinkedList.tail.previous).to.equal(5);
   });
 
   it('should set previous property of head to null when new nodes are added', function(){
@@ -67,10 +67,10 @@ describe('doublyLinkedList', function() {
     expect(doublyLinkedList.removeHead()).to.equal(4);
   });
 
-  // it("should return true after new nodes are added", function(){
-  //   var returned = doublyLinkedList.addToTail(4);
-  //   expect(returned).to.equal(true);
-  // });
+  it("should return true after new nodes are added", function(){
+    var returned = doublyLinkedList.addToTail(4);
+    expect(returned).to.equal(true);
+  });
 
   it('should contain a value that was added', function() {
     doublyLinkedList.addToTail(4);
