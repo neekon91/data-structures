@@ -23,8 +23,13 @@ var bianryMethod = {
       return !!(this.right && this.right.contains(target))
     }
   },
-  depthFirstLog: function(callback){
-
+  depthFirstLog: function(cb){
+    cb(this.value);
+    if(this.right){
+      this.right.depthFirstLog(cb)
+    } else if (this.left){
+      this.left.depthFirstLog(cb)
+    }
   }
 };
 // treeMethods.prototype.balanceFactor = function(){}
