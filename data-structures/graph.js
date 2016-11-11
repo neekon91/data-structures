@@ -45,3 +45,41 @@ Graph.prototype.forEachNode = function(cb) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+ var fs = require('fs');
+
+ // var nodeList = fs.readFileSync('./tester.txt').toString().split('\r');
+
+ var nodeList = fs.readFile('./tester.txt', "utf8", function(err, results){
+   if(err){
+     console.log(err);
+   } else {
+     var res = results.split('\r');
+     console.log(res.length-1);
+   }
+ });
+
+
+
+ var obj = { 'a': { edges: [ 'b', 'd' ], value: 'a' } ,
+   'b': { edges: [ 'a', 'c', 'g' ], value: 'b' },
+   'c': { edges: [ 'b' ], value: 'c' },
+   'd': { edges: [ 'a', 'e', 'f' ], value: 'd' },
+   'e': { edges: [ 'd' ], value: 'e' },
+   'f': { edges: [ 'd' ], value: 'f' },
+   'g': { edges: [ 'b' ], value: 'g' }};
+
+   var visited = [];
+   function dfs (obj, vertex){
+     visited.push(vertex);
+
+     obj[vertex].edges.forEach(v => {
+       if(visited.includes(v)){
+         dfs(obj, v);
+       }
+     })
+   };
+
+   dfs(obj, 'a');
+
+   console.log(visited)
