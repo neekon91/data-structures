@@ -25,11 +25,13 @@ var bianryMethod = {
   },
   depthFirstLog: function(cb){
     cb(this.value);
-    if(this.right){
-      this.right.depthFirstLog(cb)
-    } else if (this.left){
+    if(this.left){
       this.left.depthFirstLog(cb)
+    } else if (this.right){
+      this.right.depthFirstLog(cb)
     }
+  },
+  breadthFirstLog: function(cb){
   }
 };
 // treeMethods.prototype.balanceFactor = function(){}
