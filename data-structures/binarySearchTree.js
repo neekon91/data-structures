@@ -14,9 +14,9 @@ var bianryMethod = {
     } else if(this.value < value){
       (!this.right) ? this.right = BinarySearchTree(value) : this.right.insert(value);
     }
-    if (this.root){
-      this.rebalance();
-    }
+    // if (this.root){
+    //   this.rebalance();
+    // }
     return true;
   },
   contains: function(target){
@@ -28,25 +28,25 @@ var bianryMethod = {
       return !!(this.right && this.right.contains(target))
     }
   },
-  depthFirstLog: function(cb){
-    cb(this.value);
-    if(this.left){
-      this.left.depthFirstLog(cb)
-    } else if (this.right){
-      this.right.depthFirstLog(cb)
-    }
-  },
+  // depthFirstLog: function(cb){
+  //   cb(this.value);
+  //   if(this.left){
+  //     this.left.depthFirstLog(cb)
+  //   } else if (this.right){
+  //     this.right.depthFirstLog(cb)
+  //   }
+  // },
   // second way
   depthFirstLog: function(cb){
     var stack = [], cur;
     stack.push(this);
     while(stack.length > 0){
       cur = stack.pop();
-      if(cur.left){
-        stack.push(cur.left);
-      }
       if(cur.right){
         stack.push(cur.right);
+      }
+      if(cur.left){
+        stack.push(cur.left);
       }
       cb(cur.value)
     }
@@ -104,3 +104,18 @@ var bianryMethod = {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+ // var binarySearchTree = BinarySearchTree(5);
+ // var arr = [];
+ // var func = function(value){ arr.push(value); };
+ // // binarySearchTree.insert(5);
+ // binarySearchTree.insert(2);
+ // // expect(binarySearchTree._left._value).to.eql(2);
+ // // expect(binarySearchTree._right).to.eql(null);
+ // binarySearchTree.insert(1);
+ // binarySearchTree.insert(6);
+ // binarySearchTree.insert(7);
+ // binarySearchTree.insert(9);
+ // binarySearchTree.insert(4);
+ // binarySearchTree.insert(8);
+ // binarySearchTree.breadthFirstLog(func);
+ // console.log(arr)
