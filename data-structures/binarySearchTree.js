@@ -37,6 +37,18 @@ var bianryMethod = {
     }
   },
   breadthFirstLog: function(cb){
+    var queue = [], cur;
+    queue.push(this);
+    while(queue.length > 0){
+      cur = queue.pop();
+      if(cur.left){
+        queue.push(cur.left)
+      }
+      if(cur.right){
+        queue.push(cur.right)
+      }
+      cb(cur.value)
+    }
   },
   findHeight: function(){
     if(!this.left && !this.right){
@@ -66,7 +78,10 @@ var bianryMethod = {
     }
     return (lef + 1) - (righ + 1);
   },
-  rotateRight: function(){},
+  rotateRight: function(){
+    var rotateR = BinarySearchTree(this.value);
+
+  },
   rotateLeft: function(){},
   rebalance: function(){}
 };
