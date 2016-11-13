@@ -18,6 +18,11 @@ describe('binarySearchTree', function() {
     expect(binarySearchTree.rebalance).to.be.a('function');
   });
 
+  it('should return true when appending a value to the tree', function(){
+    var returned = binarySearchTree.insert(30);
+    expect(returned).to.equal(true);
+  });
+
   it('should insert values at the correct location in the tree', function() {
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
@@ -42,5 +47,31 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(3);
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3]);
+  });
+
+  it('should execute a callback on every value in a tree using "breadthFirstLog"', function(){
+    var array = [];
+    var func = function(value){ array.push(value); };
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    expect(binarySearchTree._left._value).to.eql(2);
+    expect(binarySearchTree._right).to.eql(null);
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(9);
+    binarySearchTree.insert(8);
+    binarySearchTree.breadthFirstLog(func);
+    // BST should look something like this
+    //
+    //          5
+    //       2  -  6
+    //     1 - 3   - 7
+    //         - 4   - 9
+    //               8 -
+    //
+    // If we walk the tree in depth first way we should expect something like [ 5, 2, 6, 1, 3, 7, 9, 8, 4 ]
+    expect(array).to.eql([ 5, 2, 6, 1, 3, 7, 9, 8, 4 ]);
   });
 });

@@ -3,6 +3,7 @@ var BinarySearchTree = function(value) {
   binaryTree.value = value;
   binaryTree.left = null;
   binaryTree.right = null;
+  binaryTree.root = arguments[1] || false;
   return binaryTree;
 };
 
@@ -13,6 +14,10 @@ var bianryMethod = {
     } else if(this.value < value){
       (!this.right) ? this.right = BinarySearchTree(value) : this.right.insert(value);
     }
+    if (this.root){
+      this.rebalance();
+    }
+    return true;
   },
   contains: function(target){
     if(this.value === target){
@@ -33,8 +38,34 @@ var bianryMethod = {
   },
   breadthFirstLog: function(cb){
   },
-  findHeight: function(){},
-  balanceFactor: function(){},
+  findHeight: function(){
+    if(!this.left && !this.right){
+      return -1;
+    }
+    var lef = 0;
+    var righ = 0;
+    if(this.left){
+      lef = this.left.findHeight()
+    }
+    if(this.right){
+      righ = this.right.findHeight()
+    }
+    return (lef > righ) ? lef + 1 : righ + 1;
+  },
+  balanceFactor: function(){
+    if(!this.left && !this.right){
+      return -1;
+    }
+    var lef = 0;
+    var righ = 0;
+    if(this.left){
+      lef = this.left.findHeight()
+    }
+    if(this.right){
+      righ = this.right.findHeight()
+    }
+    return (lef + 1) - (righ + 1);
+  },
   rotateRight: function(){},
   rotateLeft: function(){},
   rebalance: function(){}
