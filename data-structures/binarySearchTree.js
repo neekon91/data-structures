@@ -28,14 +28,15 @@ var bianryMethod = {
       return !!(this.right && this.right.contains(target))
     }
   },
-  // depthFirstLog: function(cb){
-  //   cb(this.value);
-  //   if(this.left){
-  //     this.left.depthFirstLog(cb)
-  //   } else if (this.right){
-  //     this.right.depthFirstLog(cb)
-  //   }
-  // },
+  depthFirstLog: function(cb){
+    cb(this.value);
+    if(this.left){
+      this.left.depthFirstLog(cb)
+    }
+    if (this.right){
+      this.right.depthFirstLog(cb)
+    }
+  },
   // second way
   depthFirstLog: function(cb){
     var stack = [], cur;
