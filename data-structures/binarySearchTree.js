@@ -36,11 +36,26 @@ var bianryMethod = {
       this.right.depthFirstLog(cb)
     }
   },
+  // second way
+  depthFirstLog: function(cb){
+    var stack = [], cur;
+    stack.push(this);
+    while(stack.length > 0){
+      cur = stack.pop();
+      if(cur.left){
+        stack.push(cur.left);
+      }
+      if(cur.right){
+        stack.push(cur.right);
+      }
+      cb(cur.value)
+    }
+  },
   breadthFirstLog: function(cb){
     var queue = [], cur;
     queue.push(this);
     while(queue.length > 0){
-      cur = queue.pop();
+      cur = queue.shift();
       if(cur.left){
         queue.push(cur.left)
       }
