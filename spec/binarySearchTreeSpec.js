@@ -5,10 +5,17 @@ describe('binarySearchTree', function() {
     binarySearchTree = BinarySearchTree(5);
   });
 
-  it('should have methods named "insert", "contains", and "depthFirstLog', function() {
+  it('should have methods named "insert", "contains", "depthFirstLog"\
+   "findHeight" "balanceFactor" "rotateRight" "rotateLeft" rebalance:', function() {
     expect(binarySearchTree.insert).to.be.a('function');
     expect(binarySearchTree.contains).to.be.a('function');
     expect(binarySearchTree.depthFirstLog).to.be.a('function');
+
+    expect(binarySearchTree.findHeight).to.be.a('function');
+    expect(binarySearchTree.balanceFactor).to.be.a('function');
+    expect(binarySearchTree.rotateRight).to.be.a('function');
+    expect(binarySearchTree.rotateLeft).to.be.a('function');
+    expect(binarySearchTree.rebalance).to.be.a('function');
   });
 
   it('should insert values at the correct location in the tree', function() {

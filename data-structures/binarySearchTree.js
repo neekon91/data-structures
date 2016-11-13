@@ -32,12 +32,14 @@ var bianryMethod = {
     }
   },
   breadthFirstLog: function(cb){
-  }
+  },
+  findHeight: function(){},
+  balanceFactor: function(){},
+  rotateRight: function(){},
+  rotateLeft: function(){},
+  rebalance: function(){}
 };
-// treeMethods.prototype.balanceFactor = function(){}
-// treeMethods.prototype.rotateRight = function(){}
-// treeMethods.prototype.rotateLeft = function(){}
-// treeMethods.prototype.rebalance = function(){}
+
 /*
  * Complexity: What is the time complexity of the above functions?
  */
