@@ -45,8 +45,6 @@ describe('binarySearchTree', function() {
     var func = function(value){ array.push(value); };
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
-    // expect(binarySearchTree._left._value).to.eql(2);
-    // expect(binarySearchTree._right).to.eql(null);
     binarySearchTree.insert(6);
     binarySearchTree.insert(7);
     binarySearchTree.insert(1);
